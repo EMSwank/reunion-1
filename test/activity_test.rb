@@ -28,4 +28,10 @@ class ActivityTest < Minitest::Test
     activity.add_participants("Jim", 60)
     assert_equal ({"Dave" => 50, "Jim" => 60}), activity.participants
   end
+
+  def test_it_has_total_cost_of_activity
+    activity = Activity.new("hiking", {"Dave"=>50, "Jim"=>60})
+
+    assert_equal 110, activity.total_cost
+  end
 end
