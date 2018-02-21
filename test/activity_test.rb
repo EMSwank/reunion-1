@@ -20,12 +20,14 @@ class ActivityTest < Minitest::Test
   def test_it_has_participants
     activity = Activity.new("hiking", {"Dave": 50})
     expected = {"Dave": 50}
+
     assert_equal expected, activity.participants
   end
 
   def test_it_can_add_participants
     activity = Activity.new("hiking", {"Dave"=>50})
     activity.add_participants("Jim", 60)
+
     assert_equal ({"Dave" => 50, "Jim" => 60}), activity.participants
   end
 
@@ -42,6 +44,10 @@ class ActivityTest < Minitest::Test
   end
 
   def test_it_calculates_whats_owed
+    activity = Activity.new("hiking", "Dave"=>50, "Jim"=>60)
 
+    assert_equal -5, activity.whats_owed("Dave")
+
+    assert_equal 5, activity.whats_owed("Jim")
   end
 end

@@ -19,6 +19,8 @@ class Activity
   def split_costs
     total_cost / @participants.count
   end
-  
 
+  def whats_owed(name)
+    difference = @participants.fetch(name) - split_costs
+  end
 end
