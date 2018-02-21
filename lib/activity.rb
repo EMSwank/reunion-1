@@ -4,7 +4,7 @@ class Activity
 
   def initialize(name, participants)
     @name = name
-    @participants = {}
+    @participants = participants
   end
 
   # def participants(name)

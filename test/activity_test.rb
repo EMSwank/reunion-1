@@ -20,7 +20,12 @@ class ActivityTest < Minitest::Test
   def test_it_has_participants
     activity = Activity.new("hiking", {name: "Dave", paid: "50"})
     expected = {name: "Dave", paid: "50"}
-    assert_equal expected, activity.participants({name: "Dave", paid: "50"})
+    assert_equal expected, activity.participants
+  end
 
+  def test_it_can_add_participants
+    activity = Activity.new("hiking", {name: "Dave", paid: "50"})
+    activity.participants[name: "Jim"]
+    assert_equal " ", activity.participants.fetch(:name)
   end
 end
