@@ -24,8 +24,8 @@ class ActivityTest < Minitest::Test
   end
 
   def test_it_can_add_participants
-    activity = Activity.new("hiking", {name: "Dave", paid: "50"})
-    activity.participants[name: "Jim"]
-    assert_equal " ", activity.participants.fetch(:name)
+    activity = Activity.new("hiking", {"Dave": 50})
+    activity.add_participants("Jim", 60)
+    assert_equal ({"Dave": 50, "Jim": 60}), activity.participants
   end
 end

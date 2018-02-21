@@ -7,7 +7,8 @@ class Activity
     @participants = participants
   end
 
-  # def participants(name)
-  #   @participants
-  # end
+  def add_participants(name, cost)
+    @name = name
+    @participants[@name] = cost
+  end
 end
